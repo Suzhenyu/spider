@@ -33,11 +33,9 @@ type MovieData struct {
 	Quote    string `json:"quote"`
 }
 
-func main() {
+func StartDoubanMovie() {
 	InitDB()
-	//for i := 0; i < 10; i++ {
-	//	Spider(strconv.Itoa(i*25))
-	//}
+
 	ch := make(chan bool)
 	for i := 0; i < 10; i++ {
 		go Spider(strconv.Itoa(i*25), ch)
@@ -155,7 +153,7 @@ func InsertSql(movieData MovieData) bool {
 }
 
 /*
-CREATE DATABASE `douban_mobie`;
+CREATE DATABASE  `douban_movie`;
 
 CREATE TABLE IF NOT EXISTS `movie_data`(
     `id` INT UNSIGNED AUTO_INCREMENT,
